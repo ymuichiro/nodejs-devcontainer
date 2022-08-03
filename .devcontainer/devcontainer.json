@@ -1,0 +1,34 @@
+{
+  "name": "Node.js",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "16-bullseye"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "yzhang.markdown-all-in-one",
+        "ritwickdey.LiveServer",
+        "xabikos.JavaScriptSnippets",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+        "Gruntfuggly.todo-tree",
+        "MS-CEINTL.vscode-language-pack-ja",
+        "chrisdias.vscode-opennewinstance",
+        "artdiniz.quitcontrol-vscode"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node node_modules&&yarn install",
+  "features": {
+    "git": "latest",
+    "github-cli": "latest"
+  }
+}

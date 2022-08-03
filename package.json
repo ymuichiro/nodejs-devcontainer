@@ -1,0 +1,7 @@
+{
+  "name": "nodejs-devcontainer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yuichiro - frinker <47295014+ymuichiro@users.noreply.github.com> <ym.u.ichiro@gmail.com> (https://github.com/ymuichiro)",
+  "license": "MIT"
+}
