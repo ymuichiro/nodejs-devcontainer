@@ -3,32 +3,29 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "16-bullseye"
+      "VARIANT": "16"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "yzhang.markdown-all-in-one",
+        "cschleiden.vscode-github-actions",
         "ritwickdey.LiveServer",
-        "xabikos.JavaScriptSnippets",
-        "ms-azuretools.vscode-docker",
-        "esbenp.prettier-vscode",
-        "Gruntfuggly.todo-tree",
-        "MS-CEINTL.vscode-language-pack-ja",
         "chrisdias.vscode-opennewinstance",
-        "artdiniz.quitcontrol-vscode"
+        "esbenp.prettier-vscode",
+        "Gruntfuggly.todo-tree"
       ]
     }
   },
   "remoteUser": "node",
   "mounts": [
-    "source=node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    "source=${localWorkspaceFolderBasename}_node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
-  "postCreateCommand": "sudo chown node node_modules&&yarn install",
+  "postCreateCommand": "sudo chown node node_modules",
+  "postStartCommand": "yarn install",
   "features": {
-    "git": "latest",
+    "git": "os-provided",
     "github-cli": "latest"
   }
 }
